@@ -1,11 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ShoppingCart, Users2, Newspaper, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import shopFeature from "@/assets/shop-feature.jpg";
 import teamFeature from "@/assets/team-feature.jpg";
 import newsFeature from "@/assets/news-feature.jpg";
 
 const Features = () => {
+  const navigate = useNavigate();
   const features = [
     {
       id: "shop",
@@ -78,11 +80,11 @@ const Features = () => {
                     className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold shadow"
                     onClick={() => {
                       if (feature.id === 'about') {
-                        window.location.href = '#/ueber-uns';
+                        navigate('/ueber-uns');
                       } else if (feature.id === 'news') {
-                        window.location.href = '#/news';
+                        navigate('/news');
                       } else if (feature.id === 'shop') {
-                        window.location.href = '#/shop';
+                        navigate('/shop');
                       }
                     }}
                   >

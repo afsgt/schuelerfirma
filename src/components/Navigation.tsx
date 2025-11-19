@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,6 +12,7 @@ import {
 import logo from "@/assets/logo.png";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -32,11 +34,11 @@ const Navigation = () => {
   }, [lastScrollY]);
 
   const menuItems = [
-    { title: "Über uns", href: "#/ueber-uns" },
-    { title: "Geschichte", href: "#/geschichte" },
-    { title: "Unsere Produkte", href: "#/shop" },
-    { title: "Gallerie", href: "#/gallery" },
-    { title: "Neuigkeiten", href: "#/news" },
+    { title: "Über uns", href: "/ueber-uns" },
+    { title: "Geschichte", href: "/geschichte" },
+    { title: "Unsere Produkte", href: "/shop" },
+    { title: "Gallerie", href: "/gallery" },
+    { title: "Neuigkeiten", href: "/news" },
   ];
 
   return (
@@ -44,7 +46,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logo} 
               alt="Alles für Schule Logo"
@@ -53,7 +55,7 @@ const Navigation = () => {
             <span className="text-lg md:text-xl font-bold text-primary">
               Alles für Schule
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
@@ -72,7 +74,7 @@ const Navigation = () => {
                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent>
-                        <DropdownMenuItem onClick={() => window.location.href = '#/gallery'}>
+                        <DropdownMenuItem onClick={() => navigate('/gallery')}>
                           AnneFranktastisch Gallerie
                         </DropdownMenuItem>
                       </DropdownMenuContent>
@@ -81,17 +83,17 @@ const Navigation = () => {
                 );
               }
               return (
-                <a
+                <Link
                   key={item.title}
-                  href={item.href}
+                  to={item.href}
                   className="text-sm text-foreground hover:text-primary transition-colors font-medium relative group"
                 >
                   {item.title}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span>
-                </a>
+                </Link>
               );
             })}
-            <Button variant="default" className="px-3 py-1 text-sm" onClick={() => window.location.href = '#/kontakt'}>
+            <Button variant="default" className="px-3 py-1 text-sm" onClick={() => navigate('/kontakt')}>
               Kontakt
             </Button>
           </div>
@@ -110,17 +112,17 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.title}
-                href={item.href}
+                to={item.href}
                 onClick={() => setIsOpen(false)}
                 className="block py-3 text-foreground hover:text-primary hover:bg-muted px-4 rounded-lg transition-colors font-medium"
               >
                 {item.title}
-              </a>
+              </Link>
             ))}
             <div className="px-4 pt-3">
-              <Button variant="default" className="w-full px-3 py-1 text-sm" onClick={() => window.location.href = '#/kontakt'}>
+              <Button variant="default" className="w-full px-3 py-1 text-sm" onClick={() => navigate('/kontakt')}>
                 Kontakt
               </Button>
             </div>

@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingBag, Users, TrendingUp } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 md:pt-24">
       {/* Background Image with Overlay */}
@@ -29,7 +31,7 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-lg px-8 py-6 font-semibold shadow"
-              onClick={() => window.location.href = '#/shop'}
+              onClick={() => navigate('/shop')}
             >
               Zum Shop
             </Button>
@@ -37,7 +39,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-sm text-lg px-8 py-6 font-semibold"
-              onClick={() => window.location.href = '#/ueber-uns'}
+              onClick={() => navigate('/ueber-uns')}
             >
               Mehr erfahren
             </Button>
