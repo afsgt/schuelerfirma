@@ -50,7 +50,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/schulerfirma">
         <ScrollToTop />
         <RedirectHandler />
         <Navigation />
