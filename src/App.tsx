@@ -50,7 +50,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/schulerfirma">
+      <BrowserRouter basename={import.meta.env.PROD ? '/schulerfirma' : '/'}>
         <ScrollToTop />
         <RedirectHandler />
         <Navigation />
