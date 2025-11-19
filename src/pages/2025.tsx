@@ -1,8 +1,11 @@
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Lightbulb } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Year2024_2025 = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen">
       <main className="pt-16 md:pt-20">
@@ -69,7 +72,7 @@ const Year2024_2025 = () => {
             {/* Gallery Button */}
             <div className="text-center mt-8">
               <Button
-                onClick={() => window.location.href = '#/gallery'}
+                onClick={() => navigate('/gallery')}
                 className="px-16 py-6 text-lg"
               >
                 Unsere Gallerie
