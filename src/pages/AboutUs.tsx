@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import { Users2, Target, Heart, Award } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import teamPhoto from "@/assets/team-feature.jpg";
+import teamPhoto from "@/assets/team-feature.png";
 
 const AboutUs = () => {
   const values = [
@@ -28,7 +28,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-4xl font-extrabold mb-10 text-primary text-center">Über uns</h1>
           <p className="text-xl text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Wir sind die Schülerfirma (Alles für Schule) der Anne-Frank-Gesamtschule in Gütersloh
+            Wir sind die Schülerfirma (Bee Franktory) der Anne-Frank-Gesamtschule in Gütersloh
           </p>
         </div>
 
@@ -40,7 +40,7 @@ const AboutUs = () => {
                 <img 
                   src={teamPhoto} 
                   alt="Schülerfirma Team"
-                  className="w-full h-auto"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
                 />
               </div>
               <p className="text-center text-muted-foreground mt-6 text-lg">

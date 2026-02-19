@@ -1,28 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const newsItems = [
-  {
-    title: "Neues Produkt im Shop!",
-    date: "2025-10-01",
-    summary: "Wir haben unser Sortiment erweitert! Entdecke jetzt unser neuestes Produkt im Shop und profitiere von attraktiven Einführungsangeboten.",
-  },
-  {
-    title: "Schülerfirma gewinnt Preis",
-    date: "2025-09-15",
-   summary: "Die Schülerfirma wurde für ihr nachhaltiges Engagement ausgezeichnet. Wir danken allen Unterstützern!",
-  },
-  {
-    title: "Tag der offenen Tür",
-    date: "2025-09-05",
-    summary: "Besuche uns am Tag der offenen Tür und lerne unser Team sowie unsere Produkte persönlich kennen.",
-  },
-];
+import { getNews, NewsItem } from "@/lib/data";
 
 const News: React.FC = () => {
   const navigate = useNavigate();
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
+
+  useEffect(() => {
+    const loadNews = async () => {
+      const newsData = await getNews();
+      const filteredNews = newsData.filter(item => item.published).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      setNewsItems(filteredNews);
+    };
+    loadNews();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -33,13 +26,13 @@ const News: React.FC = () => {
             {/* News Items */}
             <div className="lg:col-span-2">
               <div className="grid gap-6 sm:grid-cols-2">
-                {newsItems.map((item, idx) => (
-                  <article key={idx} className="bg-card rounded-lg shadow-md border border-border p-6 flex flex-col gap-2">
+                {newsItems.map((item) => (
+                  <article key={item.id} className="bg-card rounded-lg shadow-md border border-border p-6 flex flex-col gap-2">
                     <h2 className="text-xl font-semibold text-primary mb-1">{item.title}</h2>
                     <time className="text-xs text-muted-foreground mb-2" dateTime={item.date}>
                       {new Date(item.date).toLocaleDateString("de-DE")}
                     </time>
-                    <p className="text-foreground text-sm flex-1">{item.summary}</p>
+                    <p className="text-foreground text-sm flex-1">{item.excerpt}</p>
                   </article>
                 ))}
               </div>

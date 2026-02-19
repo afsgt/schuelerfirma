@@ -5,7 +5,7 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/schulerfirma/' : '/',
+  base: mode === 'production' ? '/schuelerfirma/' : '/',
   server: {
     host: "::",
     port: 8080,

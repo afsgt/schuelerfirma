@@ -3,7 +3,7 @@ import { ShoppingCart, Users2, Newspaper, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import shopFeature from "@/assets/shop-feature.jpg";
-import teamFeature from "@/assets/team-feature.jpg";
+import teamFeature from "@/assets/team-feature.png";
 import newsFeature from "@/assets/news-feature.jpg";
 
 const Features = () => {

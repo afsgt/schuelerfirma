@@ -47,13 +47,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img 
-              src={logo} 
-              alt="Alles für Schule Logo"
+            <img
+              src={logo}
+              alt="Bee Franktory Logo"
               className="h-14 w-14 md:h-20 md:w-20"
             />
             <span className="text-lg md:text-xl font-bold text-primary">
-              Alles für Schule
+              Bee Franktory
             </span>
           </Link>
 

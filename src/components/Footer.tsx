@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Facebook, Instagram, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -11,11 +11,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="AFS-GT Logo" className="h-20 w-20" />
-              <span className="text-lg font-bold">Alles für Schule</span>
+              <img src={logo} alt="Bee Franktory Logo" className="h-20 w-20" />
+              <span className="text-lg font-bold">Bee Franktory</span>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
-              Die innovative Schülerfirma der Anne-Frank-Gesamtschule in Gütersloh.
+              Die innovative Bee Franktory der Anne-Frank-Gesamtschule in Gütersloh.
             </p>
           </div>
 
@@ -24,12 +24,12 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                { label: "Startseite", href: "#/" },
-                { label: "Shop", href: "#/shop" },
-                { label: "Über uns", href: "#/ueber-uns" },
-                { label: "Neuigkeiten", href: "#/news" },
-                { label: "Gallerie", href: "#/gallery" },
-                { label: "Geschichte", href: "#/geschichte" },
+                { label: "Startseite", href: "/" },
+                { label: "Shop", href: "/shop" },
+                { label: "Über uns", href: "/ueber-uns" },
+                { label: "Neuigkeiten", href: "/news" },
+                { label: "Gallerie", href: "/gallery" },
+                { label: "Geschichte", href: "/geschichte" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <a 
@@ -61,13 +61,13 @@ const Footer = () => {
               <li className="flex items-center gap-2 text-white/80 text-sm">
                 <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
                 <a href="mailto:info@afs-gt.de" className="hover:text-secondary transition-colors">
-                  info@afs-gt.de
+                  schuelerfirma@afs-gt.de
                 </a>
               </li>
               <li className="flex items-center gap-2 text-white/80 text-sm">
                 <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
-                <a href="tel:+495241123456" className="hover:text-secondary transition-colors">
-                  +49 (0) 5241 123456
+                <a href="tel:+49524150528010" className="hover:text-secondary transition-colors">
+                  +49 (0)5241 50528010
                 </a>
               </li>
             </ul>
@@ -78,7 +78,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-secondary">Folge uns</h3>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/annefranktastisch/"
+                href="https://www.instagram.com/afsschuelerfirma/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -94,17 +94,17 @@ const Footer = () => {
         <div className="border-t border-white/20 mt-8 md:mt-12 pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
             <p>
-              © {currentYear} Alles für Schule. Alle Rechte vorbehalten.
+              © {currentYear} Bee Franktory. Alle Rechte vorbehalten.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-secondary transition-colors">
-                Datenschutz
+              <a href="/datenschutz" className="hover:text-secondary transition-colors">
+                Datenschutzerklärung nach DSGVO
               </a>
-              <a href="#" className="hover:text-secondary transition-colors">
+              <a href="/impressum" className="hover:text-secondary transition-colors">
                 Impressum
               </a>
-              <a href="#" className="hover:text-secondary transition-colors">
-                AGB
+              <a href="/haftungsbeschraenkung" className="hover:text-secondary transition-colors">
+                Haftungsbeschränkung
               </a>
             </div>
           </div>
