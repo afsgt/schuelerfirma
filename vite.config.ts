@@ -10,6 +10,16 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   build: {
+    target: 'es2015',
+    minify: 'esbuild',
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'es2015'
+    }
+  },
+  esbuild: {
+    target: 'es2015'
   },
   plugins: [react()],
   resolve: {
