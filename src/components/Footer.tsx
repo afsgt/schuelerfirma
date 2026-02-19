@@ -24,12 +24,12 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                { label: "Startseite", href: "#/" },
-                { label: "Shop", href: "#/shop" },
-                { label: "Über uns", href: "#/ueber-uns" },
-                { label: "Neuigkeiten", href: "#/news" },
-                { label: "Gallerie", href: "#/gallery" },
-                { label: "Geschichte", href: "#/geschichte" },
+                { label: "Startseite", href: "/schuelerfirma/" },
+                { label: "Shop", href: "/schuelerfirma/shop" },
+                { label: "Über uns", href: "/schuelerfirma/ueber-uns" },
+                { label: "Neuigkeiten", href: "/schuelerfirma/news" },
+                { label: "Gallerie", href: "/schuelerfirma/gallery" },
+                { label: "Geschichte", href: "/schuelerfirma/geschichte" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <a 
@@ -97,13 +97,13 @@ const Footer = () => {
               © {currentYear} Bee Franktory. Alle Rechte vorbehalten.
             </p>
             <div className="flex gap-6">
-              <a href="#/datenschutz" className="hover:text-secondary transition-colors">
+              <a href="/schuelerfirma/datenschutz" className="hover:text-secondary transition-colors">
                 Datenschutzerklärung nach DSGVO
               </a>
-              <a href="#/impressum" className="hover:text-secondary transition-colors">
+              <a href="/schuelerfirma/impressum" className="hover:text-secondary transition-colors">
                 Impressum
               </a>
-              <a href="#/haftungsbeschraenkung" className="hover:text-secondary transition-colors">
+              <a href="/schuelerfirma/haftungsbeschraenkung" className="hover:text-secondary transition-colors">
                 Haftungsbeschränkung
               </a>
             </div>
