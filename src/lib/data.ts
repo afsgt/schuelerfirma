@@ -26,7 +26,7 @@ export const products: Product[] = [
     description: "Hochwertiges Notizbuch mit AFS-Design. Perfekt für Schule und Büro.",
     price: 5.00,
     category: "Schreibwaren",
-    images: ["/products/Notizbücher/IMG_1729.jpeg"],
+    images: ["/schuelerfirma/products/Notizbücher/IMG_1729.jpeg"],
     published: true
   },
   {
@@ -36,7 +36,7 @@ export const products: Product[] = [
     description: "Langlebiger Stoffbeutel mit AFS-Logo. Ideal für Einkäufe oder als Tasche.",
     price: 3.00,
     category: "Accessoires",
-    images: ["/products/Beutel/IMG_1907.jpeg"],
+    images: ["/schuelerfirma/products/Beutel/IMG_1907.jpeg"],
     published: true
   },
   {
@@ -46,7 +46,7 @@ export const products: Product[] = [
     description: "Eleganter Kugelschreiber mit AFS-Branding. Schreibt weich und langlebig.",
     price: 1.50,
     category: "Schreibwaren",
-    images: ["/products/Stifte/IMG_1728.jpeg"],
+    images: ["/schuelerfirma/products/Stifte/IMG_1728.jpeg"],
     published: true
   },
   {
@@ -56,7 +56,7 @@ export const products: Product[] = [
     description: "Farbenfrohe Sticker mit verschiedenen AFS-Motiven. Ideal zum Dekorieren.",
     price: 0.50,
     category: "Accessoires",
-    images: ["/products/Sticker/IMG_1909.jpeg"],
+    images: ["/schuelerfirma/products/Sticker/IMG_1909.jpeg"],
     published: true
   },
   {
@@ -66,7 +66,7 @@ export const products: Product[] = [
     description: "Keramik-Kaffeetasse mit AFS-Design. Spülmaschinenfest.",
     price: 5.00,
     category: "Haushalt",
-    images: ["/products/Tassen/IMG_9249.jpeg"],
+    images: ["/schuelerfirma/products/Tassen/IMG_9249.jpeg"],
     published: true
   }
 ];
