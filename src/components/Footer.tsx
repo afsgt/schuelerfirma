@@ -3,7 +3,6 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const basePath = import.meta.env.BASE_URL || '/';
 
   return (
     <footer className="gradient-hero text-white">
@@ -25,12 +24,12 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                { label: "Startseite", href: basePath },
-                { label: "Shop", href: basePath + "shop" },
-                { label: "Über uns", href: basePath + "ueber-uns" },
-                { label: "Neuigkeiten", href: basePath + "news" },
-                { label: "Gallerie", href: basePath + "gallery" },
-                { label: "Geschichte", href: basePath + "geschichte" },
+                { label: "Startseite", href: "/" },
+                { label: "Shop", href: "/shop" },
+                { label: "Über uns", href: "/ueber-uns" },
+                { label: "Neuigkeiten", href: "/news" },
+                { label: "Gallerie", href: "/gallery" },
+                { label: "Geschichte", href: "/geschichte" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <a 
@@ -98,13 +97,13 @@ const Footer = () => {
               © {currentYear} Bee Franktory. Alle Rechte vorbehalten.
             </p>
             <div className="flex gap-6">
-              <a href={basePath + "datenschutz"} className="hover:text-secondary transition-colors">
+              <a href="/datenschutz" className="hover:text-secondary transition-colors">
                 Datenschutzerklärung nach DSGVO
               </a>
-              <a href={basePath + "impressum"} className="hover:text-secondary transition-colors">
+              <a href="/impressum" className="hover:text-secondary transition-colors">
                 Impressum
               </a>
-              <a href={basePath + "haftungsbeschraenkung"} className="hover:text-secondary transition-colors">
+              <a href="/haftungsbeschraenkung" className="hover:text-secondary transition-colors">
                 Haftungsbeschränkung
               </a>
             </div>
