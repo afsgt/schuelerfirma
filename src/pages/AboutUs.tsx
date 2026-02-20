@@ -28,7 +28,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-4xl font-extrabold mb-10 text-primary text-center">Über uns</h1>
           <p className="text-xl text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Wir sind die Schülerfirma (Bee Franktory) der Anne-Frank-Gesamtschule in Gütersloh
+            Wir sind die Schülerfirma (Bee Franktory)<br />der Anne-Frank-Gesamtschule in Gütersloh
           </p>
         </div>
 

@@ -213,11 +213,24 @@ const Datenschutz = () => {
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold mb-2 text-foreground">VIII. WebAnalytics</h2>
-                <p>Unsere Website wird bei 1&1 gehostet. Hier sind Tracking und Logging sind standardmäßig aktiviert.</p>
-                <p className="mt-2">Mit welchen Technologien ermittelt 1&1 die Daten?</p>
-                <p className="mt-2">Die Daten werden entweder durch einen Pixel oder durch ein Logfile ermittelt. Zum Schutz von personenbezogenen Daten verwendet 1&1 WebAnalytics keine Cookies.</p>
-                <p className="mt-2">In 1&1 WebAnalytics werden Daten ausschließlich zur statistischen Auswertung und zur technischen Optimierung des Webangebots erhoben.</p>
+                <h2 className="text-xl font-semibold mb-2 text-foreground">VIII. Hosting und Server-Logfiles (GitHub Pages)</h2>
+                <p>Unsere Website wird über GitHub Pages, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA, gehostet.</p>
+                <p className="mt-2">Beim Aufruf unserer Website werden durch den Hosting-Anbieter automatisch Informationen in sogenannten Server-Logfiles erhoben und gespeichert. Dies sind insbesondere:</p>
+                <ul className="list-disc ml-6 mt-2 space-y-1">
+                  <li>IP-Adresse (in gekürzter bzw. anonymisierter Form, soweit möglich)</li>
+                  <li>Datum und Uhrzeit des Zugriffs</li>
+                  <li>Zeitzonendifferenz zur Greenwich Mean Time (GMT)</li>
+                  <li>Inhalt der Anforderung (konkrete Seite)</li>
+                  <li>Zugriffsstatus/HTTP-Statuscode</li>
+                  <li>jeweils übertragene Datenmenge</li>
+                  <li>Referrer-URL (zuvor besuchte Seite)</li>
+                  <li>Browsertyp und Browserversion</li>
+                  <li>verwendetes Betriebssystem</li>
+                </ul>
+                <p className="mt-2">Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Unser berechtigtes Interesse liegt in der technischen Bereitstellung, Stabilität, Sicherheit und Optimierung unseres Webangebots.</p>
+                <p className="mt-2">Eine personenbezogene Auswertung findet durch uns nicht statt. Wir setzen keine eigenen Tracking- oder Analyse-Tools ein und verwenden keine Cookies zu Analysezwecken.</p>
+                <p className="mt-2">Es kann nicht ausgeschlossen werden, dass Daten auf Servern in den USA verarbeitet werden. GitHub ist Teil des Konzerns Microsoft Corporation. Eine Datenübermittlung in Drittstaaten erfolgt auf Grundlage geeigneter Garantien gemäß Art. 44 ff. DSGVO (z. B. EU-Standardvertragsklauseln).</p>
+                <p className="mt-2">Weitere Informationen zum Datenschutz bei GitHub finden Sie in der Datenschutzerklärung von GitHub.</p>
               </div>
 
               <div>

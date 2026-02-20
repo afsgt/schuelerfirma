@@ -38,11 +38,29 @@ const ScrollToTop = () => {
 
 const RedirectHandler = () => {
   const navigate = useNavigate();
+  
   useEffect(() => {
-    const search = window.location.search;
-    if (search.startsWith('/?')) {
-      const path = search.slice(2);
-      navigate(path, { replace: true });
+    try {
+      const search = window.location.search;
+      if (search.startsWith('/?')) {
+        // Get the path after "/?"
+        let path = search.slice(2);
+        
+        // Validate the path - check it doesn't start with invalid characters
+        // and doesn't contain malformed ~and~ sequences at the start
+        if (!path.startsWith('&') && !path.startsWith('/&') && path.length > 0 && path.length < 200) {
+          // Convert ~and~ back to & for proper query string handling
+          const validPath = path.replace(/~and~/g, '&');
+          
+          // Only navigate if the path looks valid (doesn't start with /& or contain multiple & at start)
+          if (!validPath.startsWith('/&') && !validPath.startsWith('&&')) {
+            navigate(validPath, { replace: true });
+          }
+        }
+      }
+    } catch (e) {
+      // Silently fail - don't break the app if redirect handler fails
+      console.error('Redirect handler error:', e);
     }
   }, [navigate]);
 

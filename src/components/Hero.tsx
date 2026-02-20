@@ -29,7 +29,7 @@ const Hero = () => {
             <span className="text-green-500">Bee Franktory</span>!
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Dieses Jahr hat sich unsere neue Schülerfirma gegründet. Stöbere gerne in unserem Shop und finde tolle, einzigartige Produkte. Erfahre außerdem mehr über uns und sei mit unseren News immer auf dem neusten Stand. Wir wünschen dir viel Spaß und freuen uns auf dich!
+            Dieses Jahr hat sich unsere neue Schülerfirma gegründet. Stöbere gerne in unserem Shop und finde tolle, einzigartige Produkte. Erfahre außerdem mehr über uns und sei mit unseren News immer auf dem neuesten Stand. Wir wünschen dir viel Spaß und freuen uns auf dich!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <Button

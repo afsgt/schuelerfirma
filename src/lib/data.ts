@@ -18,6 +18,8 @@ export interface NewsItem {
   published: boolean;
 }
 
+const baseUrl = import.meta.env.BASE_URL || '/';
+
 export const products: Product[] = [
   {
     id: "1",
@@ -26,7 +28,7 @@ export const products: Product[] = [
     description: "Hochwertiges Notizbuch mit AFS-Design. Perfekt für Schule und Büro.",
     price: 5.00,
     category: "Schreibwaren",
-    images: ["/schuelerfirma/products/Notizbücher/IMG_1729.jpeg"],
+    images: [`${baseUrl}products/Notizbücher/IMG_1729.jpeg`],
     published: true
   },
   {
@@ -36,7 +38,7 @@ export const products: Product[] = [
     description: "Langlebiger Stoffbeutel mit AFS-Logo. Ideal für Einkäufe oder als Tasche.",
     price: 3.00,
     category: "Accessoires",
-    images: ["/schuelerfirma/products/Beutel/IMG_1907.jpeg"],
+    images: [`${baseUrl}products/Beutel/IMG_1907.jpeg`],
     published: true
   },
   {
@@ -46,7 +48,7 @@ export const products: Product[] = [
     description: "Eleganter Kugelschreiber mit AFS-Branding. Schreibt weich und langlebig.",
     price: 1.50,
     category: "Schreibwaren",
-    images: ["/schuelerfirma/products/Stifte/IMG_1728.jpeg"],
+    images: [`${baseUrl}products/Stifte/IMG_1728.jpeg`],
     published: true
   },
   {
@@ -56,7 +58,7 @@ export const products: Product[] = [
     description: "Farbenfrohe Sticker mit verschiedenen AFS-Motiven. Ideal zum Dekorieren.",
     price: 0.50,
     category: "Accessoires",
-    images: ["/schuelerfirma/products/Sticker/IMG_1909.jpeg"],
+    images: [`${baseUrl}products/Sticker/IMG_1909.jpeg`],
     published: true
   },
   {
@@ -66,7 +68,7 @@ export const products: Product[] = [
     description: "Keramik-Kaffeetasse mit AFS-Design. Spülmaschinenfest.",
     price: 5.00,
     category: "Haushalt",
-    images: ["/schuelerfirma/products/Tassen/IMG_9249.jpeg"],
+    images: [`${baseUrl}products/Tassen/IMG_9249.jpeg`],
     published: true
   }
 ];
@@ -75,7 +77,7 @@ export const newsItems: NewsItem[] = [
   {
     id: "1",
     title: "Willkommen bei der AFS Schülerfirma",
-    excerpt: "Wir sind die Schülerfirma des Anne-Frank-Gymnasiums und bieten verschiedene Produkte an.",
+    excerpt: "Wir sind die Schülerfirma des Anne-Frank-Gesamtschule und bieten verschiedene Produkte an.",
     content: "Die Schülerfirma wurde gegründet, um Schülern praktische Erfahrungen im Bereich Unternehmertum zu ermöglichen.",
     date: "2024-09-01",
     published: true

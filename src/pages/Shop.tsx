@@ -55,13 +55,13 @@ const Shop: React.FC = () => {
               className="mx-auto mb-4 max-w-xs"
             />
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-6">
-              Zur Zeit bieten wir nur die AFS-Kleidung unseres externen Anbieters Fugamo mit Versand an. Unsere restlichen Produkte sind momentan nur direkt vor Ort erhältlich. Die Fugamo-Kleidung ist ab sofort dauerhaft erhältlich - auch in den Ferien. Unsere anderen Produkte hängen von der Schülerfirma selbst ab, sodass sie möglicherweise im nächsten Schuljahr nicht mehr erhältlich sein werden, weil eine neue Schülerfirma ihre eigenen Produkte auf den Markt bringt.
+              Zurzeit bieten wir nur die AFS-Kleidung unseres externen Anbieters Fugamo mit Versand an. Unsere restlichen Produkte sind momentan nur direkt vor Ort erhältlich. Die Fugamo-Kleidung ist ab sofort dauerhaft erhältlich - auch in den Ferien. Unsere anderen Produkte hängen von der Schülerfirma selbst ab, sodass sie möglicherweise im nächsten Schuljahr nicht mehr erhältlich sein werden, weil eine neue Schülerfirma ihre eigenen Produkte auf den Markt bringt.
             </p>
             <button
               onClick={() => navigate('/fugamo')}
               className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-semibold"
             >
-              So funktionierts!
+              So funktioniert's!
             </button>
           </div>
         </div>

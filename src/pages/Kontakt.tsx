@@ -38,8 +38,8 @@ const Kontakt: React.FC = () => {
           </form>
           <div className="mt-10 text-center text-sm text-muted-foreground">
             <div>Anne-Frank-Gesamtschule, Gütersloh</div>
-            <div>Email: <a href="mailto:info@afs-gt.de" className="text-primary hover:underline">info@afs-gt.de</a></div>
-            <div>Telefon: +49 (0) 5241 123456</div>
+            <div>Email: <a href="mailto:schuelerfirma@afs-gt.de" className="text-primary hover:underline">schuelerfirma@afs-gt.de</a></div>
+            <div>Telefon: +49 (0) 5241 50528010</div>
           </div>
         </div>
       </main>

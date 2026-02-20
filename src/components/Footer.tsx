@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
+
+const baseUrl = import.meta.env.BASE_URL || "/";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,8 +17,8 @@ const Footer = () => {
               <img src={logo} alt="Bee Franktory Logo" className="h-20 w-20" />
               <span className="text-lg font-bold">Bee Franktory</span>
             </div>
-            <p className="text-white/80 text-sm leading-relaxed">
-              Die innovative Bee Franktory der Anne-Frank-Gesamtschule in Gütersloh.
+            <p className="text-white/80 text-sm">
+              Die innovative Bee Franktory<br />der Anne-Frank-Gesamtschule in Gütersloh.
             </p>
           </div>
 
@@ -24,12 +27,12 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-secondary">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                { label: "Startseite", href: "/schuelerfirma/" },
-                { label: "Shop", href: "/schuelerfirma/shop" },
-                { label: "Über uns", href: "/schuelerfirma/ueber-uns" },
-                { label: "Neuigkeiten", href: "/schuelerfirma/news" },
-                { label: "Gallerie", href: "/schuelerfirma/gallery" },
-                { label: "Geschichte", href: "/schuelerfirma/geschichte" },
+                { label: "Startseite", href: `${baseUrl}` },
+                { label: "Shop", href: `${baseUrl}shop` },
+                { label: "Über uns", href: `${baseUrl}ueber-uns` },
+                { label: "Neuigkeiten", href: `${baseUrl}news` },
+                { label: "Gallerie", href: `${baseUrl}gallery` },
+                { label: "Geschichte", href: `${baseUrl}geschichte` },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <a 
@@ -54,13 +57,14 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-secondary transition-colors"
+                  style={{ display: 'inline-block' }}
                 >
-                  Anne-Frank-Gesamtschule<br />Gütersloh
+                  Anne-Frank-Gesamtschule Gütersloh
                 </a>
               </li>
               <li className="flex items-center gap-2 text-white/80 text-sm">
                 <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
-                <a href="mailto:info@afs-gt.de" className="hover:text-secondary transition-colors">
+                <a href="mailto:schuelerfirma@afs-gt.de" className="hover:text-secondary transition-colors">
                   schuelerfirma@afs-gt.de
                 </a>
               </li>
@@ -97,13 +101,13 @@ const Footer = () => {
               © {currentYear} Bee Franktory. Alle Rechte vorbehalten.
             </p>
             <div className="flex gap-6">
-              <a href="/schuelerfirma/datenschutz" className="hover:text-secondary transition-colors">
+              <a href={`${baseUrl}datenschutz`} className="hover:text-secondary transition-colors">
                 Datenschutzerklärung nach DSGVO
               </a>
-              <a href="/schuelerfirma/impressum" className="hover:text-secondary transition-colors">
+              <a href={`${baseUrl}impressum`} className="hover:text-secondary transition-colors">
                 Impressum
               </a>
-              <a href="/schuelerfirma/haftungsbeschraenkung" className="hover:text-secondary transition-colors">
+              <a href={`${baseUrl}haftungsbeschraenkung`} className="hover:text-secondary transition-colors">
                 Haftungsbeschränkung
               </a>
             </div>
