@@ -42,9 +42,10 @@ const RedirectHandler = () => {
   useEffect(() => {
     try {
       const search = window.location.search;
-      if (search.startsWith('/?')) {
-        // Get the path after "/?"
-        let path = search.slice(2);
+      // Check for SPA redirect format: ?/path (GitHub Pages format)
+      if (search.startsWith('?/')) {
+        // Get the path after "?/"
+        let path = '/' + search.slice(2);
         
         // Validate the path - check it doesn't start with invalid characters
         // and doesn't contain malformed ~and~ sequences at the start
