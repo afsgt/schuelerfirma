@@ -96,14 +96,7 @@ const Impressum = () => {
               <div>
                 <h2 className="text-xl font-semibold mb-2">Webhosting</h2>
                 <div className="text-muted-foreground">
-                  <p>1&1/IONOS</p>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-xl font-semibold mb-2">Design & Umsetzung</h2>
-                <div className="text-muted-foreground">
-                  <p>Coded and designed by anders-mediadesign | powered by WordPress</p>
+                  <p>Github Pages</p>
                 </div>
               </div>
 
