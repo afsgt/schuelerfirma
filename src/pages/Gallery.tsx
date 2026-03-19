@@ -3,11 +3,20 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useParams } from "react-router-dom";
 
 const Gallery = () => {
+  const { year } = useParams<{ year?: string }>();
+  
   // Dynamically import all .jpeg and .jpg images from src/assets/qual/
-  const imageModules = import.meta.glob('../assets/qual/**/*.{jpeg,jpg}', { eager: true }) as Record<string, { default: string }>;
-  const images = Object.values(imageModules).map(module => module.default);
+  const allImageModules = import.meta.glob('../assets/qual/**/*.{jpeg,jpg}', { eager: true }) as Record<string, { default: string }>;
+  
+  // Filter images by year if a year parameter is provided
+  const images = year 
+    ? Object.entries(allImageModules)
+        .filter(([path]) => path.includes(year))
+        .map(([, module]) => module.default)
+    : Object.values(allImageModules).map(module => module.default);
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [showControls, setShowControls] = useState(true);
@@ -18,6 +27,15 @@ const Gallery = () => {
       return () => clearTimeout(timer);
     }
   }, [showControls, selectedIndex]);
+
+  // Get the title based on year
+  const getTitle = () => {
+    if (!year) return "Unsere Gallerie";
+    if (year === "2024-2025") return "AnneFranktastisch";
+    if (year === "2021-2022") return "Hidden Classics";
+    if (year === "2019-2020") return "AmazingFoodStyles";
+    return year;
+  };
 
   return (
     <div className="min-h-screen">
@@ -39,79 +57,93 @@ const Gallery = () => {
               Unsere Gallerie
             </h1>
             <h2 className="text-2xl font-semibold text-muted-foreground mb-12 text-center">
-              AnneFranktastisch
+              {getTitle()}
             </h2>
 
-            {/* Gallery Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {images.map((src, index) => (
-                <div
-                  key={index}
-                  className="aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer"
-                  onClick={() => setSelectedIndex(index)}
-                >
-                  <img
-                    src={src}
-                    alt={`Gallery image ${index + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Zoom Dialog */}
-            <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
-              <DialogContent className="max-w-4xl max-h-[90vh] p-0">
-                <div
-                  className="relative"
-                  onMouseMove={() => setShowControls(true)}
-                >
-                  {/* Close Button */}
-                  <Button
-                    variant="default"
-                    size="icon"
-                    className={`absolute top-2 right-2 z-10 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
-                    onClick={() => setSelectedIndex(null)}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-
-                  {/* Previous Button */}
-                  {selectedIndex !== null && selectedIndex > 0 && (
-                    <Button
-                      variant="default"
-                      size="icon"
-                      className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
-                      onClick={() => setSelectedIndex(selectedIndex - 1)}
+            {/* Show message if no images */}
+            {images.length === 0 ? (
+              <div className="text-center py-20">
+                <p className="text-lg text-muted-foreground">
+                  Noch keine Bilder vorhanden.
+                </p>
+                <p className="text-muted-foreground mt-2">
+                  Bald werden hier Bilder von unserer Schülerfirma zu sehen sein.
+                </p>
+              </div>
+            ) : (
+              <>
+                {/* Gallery Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {images.map((src, index) => (
+                    <div
+                      key={index}
+                      className="aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer"
+                      onClick={() => setSelectedIndex(index)}
                     >
-                      <ChevronLeft className="h-6 w-6" />
-                    </Button>
-                  )}
-
-                  {/* Next Button */}
-                  {selectedIndex !== null && selectedIndex < images.length - 1 && (
-                    <Button
-                      variant="default"
-                      size="icon"
-                      className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
-                      onClick={() => setSelectedIndex(selectedIndex + 1)}
-                    >
-                      <ChevronRight className="h-6 w-6" />
-                    </Button>
-                  )}
-
-                  {/* Image */}
-                  {selectedIndex !== null && images[selectedIndex] && (
-                    <img
-                      src={images[selectedIndex]}
-                      alt="Zoomed gallery image"
-                      className="w-full h-auto max-h-[85vh] object-contain"
-                      style={{ imageRendering: 'crisp-edges' }}
-                    />
-                  )}
+                      <img
+                        src={src}
+                        alt={`Gallery image ${index + 1}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
                 </div>
-              </DialogContent>
-            </Dialog>
+
+                {/* Zoom Dialog */}
+                <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
+                  <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+                    <div
+                      className="relative"
+                      onMouseMove={() => setShowControls(true)}
+                    >
+                      {/* Close Button */}
+                      <Button
+                        variant="default"
+                        size="icon"
+                        className={`absolute top-2 right-2 z-10 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
+                        onClick={() => setSelectedIndex(null)}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+
+                      {/* Previous Button */}
+                      {selectedIndex !== null && selectedIndex > 0 && (
+                        <Button
+                          variant="default"
+                          size="icon"
+                          className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
+                          onClick={() => setSelectedIndex(selectedIndex - 1)}
+                        >
+                          <ChevronLeft className="h-6 w-6" />
+                        </Button>
+                      )}
+
+                      {/* Next Button */}
+                      {selectedIndex !== null && selectedIndex < images.length - 1 && (
+                        <Button
+                          variant="default"
+                          size="icon"
+                          className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
+                          onClick={() => setSelectedIndex(selectedIndex + 1)}
+                        >
+                          <ChevronRight className="h-6 w-6" />
+                        </Button>
+                      )}
+
+                      {/* Image */}
+                      {selectedIndex !== null && images[selectedIndex] && (
+                        <img
+                          src={images[selectedIndex]}
+                          alt="Zoomed gallery image"
+                          className="w-full h-auto max-h-[85vh] object-contain"
+                          style={{ imageRendering: 'crisp-edges' }}
+                        />
+                      )}
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </>
+            )}
           </div>
         </div>
       </main>

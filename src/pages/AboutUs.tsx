@@ -1,26 +1,7 @@
 import Footer from "@/components/Footer";
-import { Users2, Target, Heart, Award } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import teamPhoto from "@/assets/team-feature.png";
 
 const AboutUs = () => {
-  const values = [
-    {
-      icon: Target,
-      title: "Unser Ziel",
-      description: "Wir lernen Unternehmertum in der Praxis und entwickeln wichtige Fähigkeiten für die Zukunft."
-    },
-    {
-      icon: Heart,
-      title: "Unser Engagement",
-      description: "Mit Leidenschaft und Teamgeist arbeiten wir gemeinsam an unseren Projekten und Produkten."
-    },
-    {
-      icon: Award,
-      title: "Unsere Erfolge",
-      description: "Seit über 5 Jahren erfolgreich am Markt mit zufriedenen Kunden und wachsendem Produktsortiment."
-    }
-  ];
 
   return (
     <div className="min-h-screen">
@@ -74,39 +55,6 @@ const AboutUs = () => {
                   neue Produkte, organisieren Events und kümmern uns um unsere Kunden.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Values Section */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">
-              Unsere Werte
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {values.map((value, index) => {
-                const Icon = value.icon;
-                return (
-                  <Card 
-                    key={value.title}
-                    className="text-center hover:shadow-xl transition-shadow duration-300 animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <CardContent className="pt-8 pb-8">
-                      <div className="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Icon className="h-8 w-8 text-primary" />
-                      </div>
-                      <h3 className="text-xl font-bold text-primary mb-3">
-                        {value.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
             </div>
           </div>
         </section>

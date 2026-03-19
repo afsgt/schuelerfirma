@@ -9,9 +9,27 @@ const Geschichte = () => {
   const milestones = [
     {
       icon: Lightbulb,
+      year: "2025/2026",
+      title: "Bee Franktory",
+      description: "Aktuelle Schülerfirma."
+    },
+    {
+      icon: Lightbulb,
       year: "2024/2025",
       title: "AnneFranktastisch",
       description: "Neue Produkte und Dienstleistungen wurden eingeführt."
+    },
+    {
+      icon: Lightbulb,
+      year: "2021/2022",
+      title: "Hidden Classics",
+      description: "Kleidung, Logo entworfen und Bestellprozess für Lehrer aufgebaut."
+    },
+    {
+      icon: Lightbulb,
+      year: "2019/2020",
+      title: "AmazingFoodStyles",
+      description: "Das erste Kochbuch der AFS wurde erstellt."
     }
   ];
 
@@ -27,29 +45,8 @@ const Geschichte = () => {
                 Unsere Geschichte
               </h1>
               <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
-                Von der Gründung bis heute - die Entwicklung unserer Schülerfirma
+                Von 2018 bis heute - die Entwicklung unserer Schülerfirma
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* History Section */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
-                Wie alles begann
-              </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
-                <p className="text-lg leading-relaxed">
-                  Die Schülerfirma der Anne-Frank-Gesamtschule wurde 2018 gegründet mit dem Ziel,
-                  Schülerinnen und Schülern praktische Erfahrungen im Unternehmertum zu vermitteln.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Seitdem haben wir uns kontinuierlich weiterentwickelt, neue Produkte entwickelt
-                  und unser Team erweitert. Jeder Meilenstein hat uns stärker gemacht.
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -70,19 +67,19 @@ const Geschichte = () => {
                   return (
                     <div
                       key={milestone.year}
-                      className="relative flex items-center mb-12 animate-fade-in"
+                      className="relative flex items-stretch mb-8 animate-fade-in"
                       style={{ animationDelay: `${index * 0.2}s` }}
                     >
                       {/* Timeline Dot */}
-                      <div className="absolute left-6 w-4 h-4 bg-secondary rounded-full border-4 border-background z-10"></div>
+                      <div className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-background z-10"></div>
 
                       {/* Content */}
                       <div
-                        className="ml-16 bg-background rounded-lg shadow-md border border-border p-6 hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
-                        onClick={() => navigate(`/geschichte/${milestone.year}`)}
+                        className="ml-16 bg-background rounded-lg shadow-md border border-border p-6 hover:shadow-xl transition-shadow duration-300 cursor-pointer group flex-grow"
+                        onClick={() => navigate(`/geschichte/${milestone.year.replace('/', '-')}`)}
                       >
                         <div className="flex items-center gap-4 mb-3">
-                          <div className="bg-secondary/10 w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                          <div className="bg-secondary/10 w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors flex-shrink-0">
                             <Icon className="h-6 w-6 text-secondary" />
                           </div>
                           <div>

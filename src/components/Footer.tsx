@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="gradient-hero text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -31,7 +31,6 @@ const Footer = () => {
                 { label: "Shop", href: `${baseUrl}shop` },
                 { label: "Über uns", href: `${baseUrl}ueber-uns` },
                 { label: "Neuigkeiten", href: `${baseUrl}news` },
-                { label: "Gallerie", href: `${baseUrl}gallery` },
                 { label: "Geschichte", href: `${baseUrl}geschichte` },
               ].map(({ label, href }) => (
                 <li key={label}>

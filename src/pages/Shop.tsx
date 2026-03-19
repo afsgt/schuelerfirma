@@ -21,7 +21,8 @@ const Shop: React.FC = () => {
     <div className="min-h-screen">
       <main className="pt-16 md:pt-20">
         <div className="container mx-auto px-4 max-w-3xl py-12">
-          <h1 className="text-4xl font-extrabold mb-10 text-primary text-center">Unsere Produkte</h1>
+          <h1 className="text-4xl font-extrabold mb-4 text-primary text-center">Unsere Produkte</h1>
+          <p className="text-lg text-muted-foreground mb-10 text-center">Vor Ort erhältlich</p>
           <div className="grid gap-8 sm:grid-cols-2">
             {products.map((product) => (
               <div key={product.id} className="bg-card rounded-lg shadow-md border border-border p-6 flex flex-col gap-2">
@@ -48,15 +49,13 @@ const Shop: React.FC = () => {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <h2 className="text-2xl font-bold text-primary mb-4">Kleidung bei Fugamo</h2>
+            <h2 className="text-2xl font-bold text-primary mb-4">Kleidung bei Fugamo (Online bestellbar)</h2>
             <img
               src={fugamoImg}
               alt="Fugamo"
               className="mx-auto mb-4 max-w-xs"
             />
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-6">
-              Zurzeit bieten wir nur die AFS-Kleidung unseres externen Anbieters Fugamo mit Versand an. Unsere restlichen Produkte sind momentan nur direkt vor Ort erhältlich. Die Fugamo-Kleidung ist ab sofort dauerhaft erhältlich - auch in den Ferien. Unsere anderen Produkte hängen von der Schülerfirma selbst ab, sodass sie möglicherweise im nächsten Schuljahr nicht mehr erhältlich sein werden, weil eine neue Schülerfirma ihre eigenen Produkte auf den Markt bringt.
-            </p>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-6"></p>
             <button
               onClick={() => navigate('/fugamo')}
               className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-semibold"

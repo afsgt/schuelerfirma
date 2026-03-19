@@ -18,7 +18,11 @@ import Stoffbeutel from "./pages/Stoffbeutel";
 import Kugelschreiber from "./pages/Kugelschreiber";
 import Sticker from "./pages/Sticker";
 import Kaffeetasse from "./pages/Kaffeetasse";
+import CollageJacken from "./pages/CollageJacken";
 import Year2024_2025 from "./pages/2025";
+import Year2025_2026 from "./pages/2026";
+import Year2021_2022 from "./pages/2021";
+import Year2019_2020 from "./pages/2019";
 import Fugamo from "./pages/Fugamo";
 import Gallery from "./pages/Gallery";
 import Impressum from "./pages/Impressum";
@@ -107,16 +111,21 @@ const PublicLayout = () => (
       <Route path="/" element={<Index />} />
       <Route path="/ueber-uns" element={<AboutUs />} />
       <Route path="/geschichte" element={<Geschichte />} />
-      <Route path="/geschichte/2024/2025" element={<Year2024_2025 />} />
+      <Route path="/geschichte/2025-2026" element={<Year2025_2026 />} />
+      <Route path="/geschichte/2024-2025" element={<Year2024_2025 />} />
+      <Route path="/geschichte/2021-2022" element={<Year2021_2022 />} />
+      <Route path="/geschichte/2019-2020" element={<Year2019_2020 />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/shop/notizbuch" element={<Notizbuch />} />
       <Route path="/shop/stoffbeutel" element={<Stoffbeutel />} />
       <Route path="/shop/kugelschreiber" element={<Kugelschreiber />} />
       <Route path="/shop/sticker" element={<Sticker />} />
       <Route path="/shop/kaffeetasse" element={<Kaffeetasse />} />
+      <Route path="/shop/collage-jacken" element={<CollageJacken />} />
       <Route path="/shop/:slug" element={<ProductDetail />} />
       <Route path="/fugamo" element={<Fugamo />} />
       <Route path="/gallery" element={<Gallery />} />
+      <Route path="/gallery/:year" element={<Gallery />} />
       <Route path="/news" element={<News />} />
       <Route path="/kontakt" element={<Kontakt />} />
       <Route path="/impressum" element={<Impressum />} />

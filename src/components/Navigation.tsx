@@ -34,6 +34,7 @@ const Navigation = () => {
   }, [lastScrollY]);
 
   const menuItems = [
+    { title: "Startseite", href: "/" },
     { title: "Über uns", href: "/ueber-uns" },
     { title: "Geschichte", href: "/geschichte" },
     { title: "Unsere Produkte", href: "/shop" },
@@ -74,8 +75,17 @@ const Navigation = () => {
                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent>
-                        <DropdownMenuItem onClick={() => navigate('/gallery')}>
-                          AnneFranktastisch Gallerie
+                        <DropdownMenuItem onClick={() => navigate('/gallery/2025-2026')}>
+                          2025/2026 (Bee Franktory)
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate('/gallery/2024-2025')}>
+                          2024/2025 (AnneFranktastisch)
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate('/gallery/2021-2022')}>
+                          2021/2022 (Hidden Classics)
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate('/gallery/2019-2020')}>
+                          2019/2020 (AmazingFoodStyles)
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>

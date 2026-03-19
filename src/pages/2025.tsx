@@ -72,7 +72,7 @@ const Year2024_2025 = () => {
             {/* Gallery Button */}
             <div className="text-center mt-8">
               <Button
-                onClick={() => navigate('/gallery')}
+                onClick={() => navigate('/gallery/2024-2025')}
                 className="px-16 py-6 text-lg"
               >
                 Unsere Gallerie

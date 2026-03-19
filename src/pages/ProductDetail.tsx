@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
-import { getProducts, Product } from "@/lib/data";
+import { getProducts, Product, ProductColor } from "@/lib/data";
 
 const ProductDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
+  const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
 
   useEffect(() => {
     const loadProduct = async () => {
       const products = await getProducts();
       const foundProduct = products.find(p => p.slug === slug && p.published);
       setProduct(foundProduct || null);
+      // Set default color if product has colors
+      if (foundProduct && foundProduct.colors && foundProduct.colors.length > 0) {
+        setSelectedColor(foundProduct.colors[0]);
+      }
       setLoading(false);
     };
     loadProduct();
   }, [slug]);
+
+  // Get the current image based on selected color
+  const currentImage = selectedColor ? selectedColor.image : (product?.images[0] || '/src/assets/placeholder.svg');
 
   if (loading) {
     return (
@@ -57,11 +65,11 @@ const ProductDetail: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <img
-                src={product.images[0] || '/src/assets/placeholder.svg'}
+                src={currentImage}
                 alt={product.name}
                 className="w-full h-96 object-contain rounded-lg shadow-lg"
               />
-              {product.images.length > 1 && (
+              {product.images.length > 1 && !selectedColor && (
                 <div className="mt-4 grid grid-cols-4 gap-2">
                   {product.images.slice(1).map((image, index) => (
                     <img
@@ -80,6 +88,36 @@ const ProductDetail: React.FC = () => {
               <div className="text-2xl font-bold text-primary mb-4">€{product.price.toFixed(2)}</div>
               <div className="text-sm text-muted-foreground mb-2">Category: {product.category}</div>
               <p className="text-lg text-foreground mb-6">{product.description}</p>
+
+              {/* Color Selection */}
+              {product.colors && product.colors.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="font-semibold mb-3">Wählen Sie eine Farbe:</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {product.colors.map((color) => (
+                      <button
+                        key={color.id}
+                        onClick={() => setSelectedColor(color)}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg border-2 transition-all ${
+                          selectedColor?.id === color.id
+                            ? 'border-primary shadow-md scale-105'
+                            : 'border-gray-200 hover:border-gray-400'
+                        }`}
+                      >
+                        <span
+                          className="w-6 h-6 rounded-full border border-gray-300 shadow-sm overflow-hidden"
+                          style={{ 
+                            background: color.secondaryHex 
+                              ? `linear-gradient(135deg, ${color.hex} 50%, ${color.secondaryHex} 50%)`
+                              : color.hex 
+                          }}
+                        />
+                        <span className="text-sm font-medium">{color.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Product Information</h3>
